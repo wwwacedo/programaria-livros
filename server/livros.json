@@ -1,0 +1,20 @@
+[
+	{
+		"nome": "O Assassinato de Roger Ackroyd",
+		"autora": "Agatha Christie",
+		"imagem": "https://books.google.com.br/books/publisher/content?id=PKrwAwAAQBAJ&hl=pt-BR&pg=PP1&img=1&zoom=3&bul=1&sig=ACfU3U245X-KW7iHAO-Gg8hSqQxwHjImgA&w=1280",
+		"categoria": "Ficção policial"
+	},
+	{
+		"nome": "Assassinato no Expresso do Oriente",
+		"autora": "Agatha Christie",
+		"imagem": "https://m.media-amazon.com/images/I/51fLtg6MDIL._SX322_BO1,204,203,200_.jpg",
+		"categoria": "Ficção policial"
+	}	,
+	{
+		"nome": "Os crimes ABC",
+		"autora": "Agatha Christie",
+		"imagem": "https://m.media-amazon.com/images/I/41wOMwY6NRL._SX322_BO1,204,203,200_.jpg",
+		"categoria": "Ficção policial"
+	}
+]
