@@ -2,37 +2,34 @@ import { useState, useEffect } from 'react'
 import Axios from 'axios'
 import styled from 'styled-components';
 
-import livros from '../../server/livros.json';
-
 export default function Content() {
-	// const [repositories, setRepositories] = useState([])
-	const [repositories, setRepositories] = useState(livros)
+	const [repositories, setRepositories] = useState([])
 	const [autora, setAutora] = useState('')
 	const [nome, setNome] = useState('')
 	const [imagem, setImagem] = useState('')
 	const [categoria, setCategoria] = useState('')
 	const [success, setSuccess] = useState(false)
-	// const baseURL = 'https://back-end-6c7c.onrender.com/mulheres'
+	const baseURL = 'https://programaria-livros-backend.onrender.com/livros'
 
 	// GET
-	// async function getData() {
-	// 	const response = await Axios.get(baseURL)
-	// 	setRepositories(response.data)
-	// }
+	async function getData() {
+		const response = await Axios.get(baseURL)
+		setRepositories(response.data)
+	}
 
 	// POST
-	// async function sendData() {
-	// 	await Axios.post(baseURL, {
-	// 		autora: autora,
-	// 		nome: nome,
-	// 		imagem: imagem,
-	// 		categoria: categoria
-	// 	})
-	// }
+	async function sendData() {
+		await Axios.post(baseURL, {
+			autora: autora,
+			nome: nome,
+			imagem: imagem,
+			categoria: categoria
+		})
+	}
 
-	// useEffect(() => {
-	// 	getData()
-	// }, [])
+	useEffect(() => {
+		getData()
+	}, [])
 
 	function handleInputValueAutora(event) {
 		setAutora(event.target.value)
@@ -55,8 +52,8 @@ export default function Content() {
 
 		console.log('mensagem enviada', autora, nome, imagem, categoria)
 
-		// sendData()
-		// getData()
+		sendData()
+		getData()
 
 		setSuccess(true)
 		setAutora('')

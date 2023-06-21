@@ -31,7 +31,7 @@ async function criaLivro(req, res) {
 	const novoLivro = new Livro({
 		nome: req.body.nome,
 		autora: req.body.autora,
-		imagemCapa: req.body.imagemCapa,
+		imagem: req.body.imagem,
 		categoria: req.body.categoria
 	});
 	try{
@@ -48,7 +48,7 @@ async function atualizaLivro(req, res) {
 		const livroEncontrado = await Livro.findById(req.params.id);
 		if (req.body.nome) livroEncontrado.nome = req.body.nome;
 		if (req.body.autora) livroEncontrado.autora = req.body.autora;
-		if (req.body.imagemCapa) livroEncontrado.imagemCapa = req.body.imagemCapa;
+		if (req.body.imagem) livroEncontrado.imagem = req.body.imagem;
 		if (req.body.categoria) livroEncontrado.categoria = req.body.categoria;
 		const livroAtualizado = await livroEncontrado.save();
 		res.status(200).json(livroAtualizado);
