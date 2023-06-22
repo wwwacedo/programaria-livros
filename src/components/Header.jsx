@@ -16,7 +16,7 @@ export default function Header() {
 
 const MyHeader = styled.header`
 	width: 100vw;
-	height: 350px;
+	height: 450px;
 	background-size: cover;
 	background-position: 50% 50%;
 

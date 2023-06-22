@@ -16,5 +16,29 @@
 		"autora": "Agatha Christie",
 		"imagem": "https://m.media-amazon.com/images/I/41wOMwY6NRL._SX322_BO1,204,203,200_.jpg",
 		"categoria": "Ficção policial"
+	},
+	{
+		"nome": "Convite Para um Homicídio",
+		"autora": "Agatha Christie",
+		"imagem": "https://m.media-amazon.com/images/I/51vpvz4sPzL._SX299_BO1,204,203,200_.jpg",
+		"categoria": "Ficção policial"
+	},
+	{
+		"nome": "Morte na Praia",
+		"autora": "Agatha Christie",
+		"imagem": "https://m.media-amazon.com/images/I/51aEWxYK68L._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+		"categoria": "Ficção policial"
+	},
+	{
+		"nome": "Um Brinde de Cianureto",
+		"autora": "Agatha Christie",
+		"imagem": "https://m.media-amazon.com/images/I/41duRyA7SsL._SX295_BO1,204,203,200_.jpg",
+		"categoria": "Ficção policial"
+	},
+	{
+		"nome": "Uma Dose Mortal",
+		"autora": "Agatha Christie",
+		"imagem": "https://m.media-amazon.com/images/I/51yuy4h03-L._SX301_BO1,204,203,200_.jpg",
+		"categoria": "Ficção policial"
 	}
 ]

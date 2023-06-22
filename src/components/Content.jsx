@@ -8,7 +8,7 @@ export default function Content() {
 	const [nome, setNome] = useState('')
 	const [imagem, setImagem] = useState('')
 	const [categoria, setCategoria] = useState('')
-	const [success, setSuccess] = useState(false)
+	const [successMessage, setSuccessMessage] = useState('')
 	const baseURL = 'https://programaria-livros-backend.onrender.com/livros'
 
 	// GET
@@ -19,17 +19,19 @@ export default function Content() {
 
 	// POST
 	async function sendData() {
-		await Axios.post(baseURL, {
+		const response = await Axios.post(baseURL, {
 			autora: autora,
 			nome: nome,
 			imagem: imagem,
 			categoria: categoria
 		})
+		response.status && setSuccessMessage('Cadastro realizado com sucesso.')
 	}
 
 	useEffect(() => {
+		!repositories ? console.log('ainda não temos livros cadastrados') : "";
 		getData()
-	}, [])
+	}, [repositories])
 
 	function handleInputValueAutora(event) {
 		setAutora(event.target.value)
@@ -55,16 +57,18 @@ export default function Content() {
 		sendData()
 		getData()
 
-		setSuccess(true)
+		
 		setAutora('')
 		setNome('')
 		setImagem('')
 		setCategoria('')
+		setTimeout(() => {	
+			setSuccessMessage('')
+		}	, 4000)
 	}
 
 	return (
 		<>
-
 			<ProjectContainer>
 				<div className="projectsContainer">
 					<div className="cardsRepoContainer">
@@ -74,7 +78,6 @@ export default function Content() {
 									<div className="cardImgContainer">
 										<img className="cardRepoImage" src={repo.imagem} />
 									</div>
-									{console.log(repo.imagem)}
 									<div className="cardTextContainer">
 										<p className="cardRepoNome nome">{repo.nome}</p>
 										<p className="cardRepoAutora autora">{repo.autora}</p>
@@ -114,8 +117,8 @@ export default function Content() {
 						value={categoria}
 					/>
 					<button type="submit">Enviar mensagem</button>
-
-					{success && <p>Cadastro realizado com sucesso.</p>}
+					<p>{successMessage}</p>
+					
 				</form>
 			</FormContainer>
 		</>
@@ -205,7 +208,8 @@ const FormContainer = styled.div`
 	h2 {
   		font-size: 2rem;
   		color: #F9F8FF;
-  		text-align:center
+  		text-align: center;
+		padding-bottom: 1rem;
 	}
 	form {
 		margin: 0 auto;
@@ -216,6 +220,7 @@ const FormContainer = styled.div`
   		justify-content: center;
  		align-items: center;
   		flex-direction: column;
+		gap: .5rem;
 		input {
 			width: 80%;
   			padding: 12px 32px;
@@ -223,6 +228,7 @@ const FormContainer = styled.div`
   			border-radius: 4px;
   			resize: vertical;
   			margin-bottom: 1rem;
+			outline: none;
 		}
 		textarea { 
 			width: 80%;
@@ -231,6 +237,7 @@ const FormContainer = styled.div`
   			border-radius: 4px;
   			resize: vertical;
   			margin-bottom: 1rem;
+			outline: none;
 		}
 		button {
 			background-color: #4CAF50;
@@ -246,8 +253,11 @@ const FormContainer = styled.div`
   			border-radius: 4px;
   			cursor: pointer;
 				:hover {
-  					background-color: #4CA;
+  					background-color: #4CAF50;
 				}
+		}
+		p {
+			height: 1rem;
 		}
 	}
 `
