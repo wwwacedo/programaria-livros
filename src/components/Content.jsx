@@ -3,6 +3,7 @@ import Axios from 'axios'
 import styled from 'styled-components';
 
 export default function Content() {
+	const MEUS_LIVROS = 8
 	const [repositories, setRepositories] = useState([])
 	const [autora, setAutora] = useState('')
 	const [nome, setNome] = useState('')
@@ -10,11 +11,13 @@ export default function Content() {
 	const [categoria, setCategoria] = useState('')
 	const [successMessage, setSuccessMessage] = useState('')
 	const baseURL = 'https://programaria-livros-backend.onrender.com/livros'
+	const [loading, setLoading] = useState(true)
 
 	// GET
 	async function getData() {
 		const response = await Axios.get(baseURL)
 		setRepositories(response.data)
+		setLoading(false)
 	}
 
 	// POST
@@ -49,6 +52,18 @@ export default function Content() {
 		setCategoria(event.target.value)
 	}
 
+	function createLoader() {
+		return (
+			<Loader>
+				<div className="loader"></div>
+			</Loader>
+		)
+	}
+
+	async function deleteData(id) {
+		await Axios.delete(`${baseURL}/${id}`)
+	}
+
 	function handleCreateMessage(event) {
 		event.preventDefault()
 
@@ -57,39 +72,43 @@ export default function Content() {
 		sendData()
 		getData()
 
-		
 		setAutora('')
 		setNome('')
 		setImagem('')
 		setCategoria('')
-		setTimeout(() => {	
+		setTimeout(() => {
 			setSuccessMessage('')
-		}	, 4000)
+		}, 4000)
 	}
 
 	return (
 		<>
-			<ProjectContainer>
-				<div className="projectsContainer">
-					<div className="cardsRepoContainer">
-						{repositories.map((repo) => {
-							return (
-								<CardRepo key={repo._id}>
-									<div className="cardImgContainer">
-										<img className="cardRepoImage" src={repo.imagem} />
-									</div>
-									<div className="cardTextContainer">
-										<p className="cardRepoNome nome">{repo.nome}</p>
-										<p className="cardRepoAutora autora">{repo.autora}</p>
-										<p className="cardRepoQuote">{repo.categoria}</p>
-									</div>
+			{loading
+				? createLoader()
+				: <ProjectContainer>
+					<div className="projectsContainer">
+						<div className="cardsRepoContainer">
+							{repositories.map((repo, index) => {
+								return (
+									<CardRepo key={repo._id}>
+										<div className="cardImgContainer">
+											<img className="cardRepoImage" src={repo.imagem} />
+										</div>
+										<div className="cardTextContainer">
+											<p className="cardRepoNome nome">{repo.nome}</p>
+											<p className="cardRepoAutora autora">{repo.autora}</p>
+											<p className="cardRepoQuote">{repo.categoria}</p>
+										</div>
+										{index > MEUS_LIVROS - 1 && <button onClick={() => deleteData(repo._id)}>Apagar</button>}
 
-								</CardRepo>
-							)
-						})}
+									</CardRepo>
+								)
+							})}
+						</div>
 					</div>
-				</div>
-			</ProjectContainer>
+				</ProjectContainer>
+			}
+
 
 			{/* FORMULÁRIO */}
 
@@ -118,12 +137,32 @@ export default function Content() {
 					/>
 					<button type="submit">Enviar mensagem</button>
 					<p>{successMessage}</p>
-					
+
 				</form>
 			</FormContainer>
 		</>
 	)
 }
+
+const Loader = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 150px;	
+
+	.loader {
+	border: 12px solid #f3f3f3;
+	border-top: 12px solid #686AAC; 
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 2s linear infinite;
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+}
+`
 
 const ProjectContainer = styled.div`
 	padding: 2rem 0 4rem;
@@ -198,6 +237,21 @@ const CardRepo = styled.div`
 			font-style: italic;
 			font-weight: lighter;
 		}
+	}
+	button {
+		background-color: #EF6269;
+  		border: none;
+  		color: white;
+  		padding: 8px 16px;
+  		font-size: 16px;
+  		margin-top: 1rem;
+  		border-radius: 3px;
+  		cursor: pointer;
+		transition: all 0.3s ease-in-out;
+	}
+
+	button:hover {
+		  background-color: #000000;
 	}
 `
 

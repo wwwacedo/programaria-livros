@@ -40,5 +40,17 @@
 		"autora": "Agatha Christie",
 		"imagem": "https://m.media-amazon.com/images/I/51yuy4h03-L._SX301_BO1,204,203,200_.jpg",
 		"categoria": "Ficção policial"
+	},
+	{
+		"nome": "O homem de giz",
+		"autora": "C. J. Tudor",
+		"imagem": "https://m.media-amazon.com/images/I/41LuOehnKtL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+		"categoria": "Suspense e mistério"
+	},
+	{
+		"nome": "O que aconteceu com Annie",
+		"autora": "C. J. Tudor",
+		"imagem": "https://m.media-amazon.com/images/I/41AaH9+vreL._SX343_BO1,204,203,200_.jpg",
+		"categoria": "Suspense e mistério"
 	}
 ]
