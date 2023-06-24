@@ -31,6 +31,12 @@ export default function Content() {
 		response.status && setSuccessMessage('Cadastro realizado com sucesso.')
 	}
 
+	// DELETE
+	async function deleteData(id) {
+		const response = await Axios.delete(`${baseURL}/${id}`)
+		alert(`${response.data.mensagem}`)
+	}
+
 	useEffect(() => {
 		!repositories ? console.log('ainda não temos livros cadastrados') : "";
 		getData()
@@ -58,10 +64,6 @@ export default function Content() {
 				<div className="loader"></div>
 			</Loader>
 		)
-	}
-
-	async function deleteData(id) {
-		await Axios.delete(`${baseURL}/${id}`)
 	}
 
 	function handleCreateMessage(event) {
@@ -207,7 +209,6 @@ const CardRepo = styled.div`
   		height: 80%;
 		  
 		.cardRepoImage {
-			border-radius: .5rem;
   			width: 60%;
 			min-width: 150px;
 			object-fit: cover;
@@ -255,7 +256,6 @@ const CardRepo = styled.div`
 	}
 `
 
-
 const FormContainer = styled.div`
 	background-color: #464555;
 	padding: 4rem 0;
@@ -283,6 +283,7 @@ const FormContainer = styled.div`
   			resize: vertical;
   			margin-bottom: 1rem;
 			outline: none;
+			background-color: #3B3B3B;
 		}
 		textarea { 
 			width: 80%;
@@ -292,6 +293,7 @@ const FormContainer = styled.div`
   			resize: vertical;
   			margin-bottom: 1rem;
 			outline: none;
+			background-color: #3B3B3B;
 		}
 		button {
 			background-color: #4CAF50;

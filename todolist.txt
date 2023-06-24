@@ -1,5 +1,0 @@
-OK - reaload dos livros após inserir um novo
-OK - loading da página enquanto a api está buscando os livros
-OK - mensagem de sucesso após cadastramento do livro
-OK - fazer o delete do livro
-5. mudar o favicon
