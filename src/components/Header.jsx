@@ -7,7 +7,7 @@ export default function Header() {
 	return (
 		<MyHeader>
 				<h1>Estante Virtual</h1>
-				<h2>Conheça livros incríveis escritos por autoras mulheres!</h2>
+				<h2>Conheça livros incríveis escritos por mulheres!</h2>
 				<img src={imagem} alt="" />
 		</MyHeader>
 	)

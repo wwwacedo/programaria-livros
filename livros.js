@@ -3,7 +3,7 @@ import cors from 'cors';
 import conectaBancoDeDados from './bancoDeDados.js';
 import Livro from './livroModel.js'; 
 
-const porta = 3333;
+const PORTA = 3333;
 const app = express();
 const router = express.Router();
 
@@ -13,7 +13,7 @@ app.use(cors());
 conectaBancoDeDados();
 
 function mostraPorta() {
-	console.log(`Servidor rodando na porta ${porta}`);
+	console.log(`Servidor rodando na porta ${PORTA}`);
 }
 
 //GET
@@ -73,4 +73,4 @@ app.use(router.post('/livros', criaLivro));
 app.use(router.patch('/livros/:id', atualizaLivro));
 app.use(router.delete('/livros/:id', deletaLivro));
 
-app.listen(porta, mostraPorta);
+app.listen(PORTA, mostraPorta);

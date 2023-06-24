@@ -13,10 +13,10 @@ export default function Footer() {
 				<p>Mariana M. Macêdo | Dev</p>	
 				<div  className="social">
 					<a href="https://www.linkedin.com/in/wwwacedo" target="blank">
-						<Linkedin className="rede" fontSize={'1.5rem'} color='white'/>
+						<Linkedin className="rede" fontSize={'2rem'} color='white'/>
 					</a>
 					<a href="https://github.com/wwwacedo">
-						<Github className="rede" fontSize={'1.5rem'} color='white'/>
+						<Github className="rede" fontSize={'2rem'} color='white'/>
 					</a>
 				</div>
 			</div>
@@ -44,15 +44,16 @@ const FooterTag = styled.footer`
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		gap: .5rem;
 		
 		p {
-			font-size: .8rem;
+			font-size: .9rem;
 			padding-bottom: .3rem;
 		}
 		
 		.social {
 			display: flex;
-			gap: .5rem;
+			gap: .8rem;
 		}
 	}
 	

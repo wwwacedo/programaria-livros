@@ -137,7 +137,7 @@ export default function Content() {
 						placeholder="Digite a categoria do livro"
 						value={categoria}
 					/>
-					<button type="submit">Enviar mensagem</button>
+					<button type="submit">Cadastrar</button>
 					<p>{successMessage}</p>
 
 				</form>
