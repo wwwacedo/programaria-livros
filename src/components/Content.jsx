@@ -284,6 +284,7 @@ const FormContainer = styled.div`
   			margin-bottom: 1rem;
 			outline: none;
 			background-color: #3B3B3B;
+			color: white;
 		}
 		textarea { 
 			width: 80%;
@@ -294,6 +295,7 @@ const FormContainer = styled.div`
   			margin-bottom: 1rem;
 			outline: none;
 			background-color: #3B3B3B;
+			color: white;
 		}
 		button {
 			background-color: #4CAF50;
